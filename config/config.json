@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "node_burgers",
+    "database": "exampledb",
     "host": "localhost",
     "dialect": "mysql"
   },
