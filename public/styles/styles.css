@@ -1,3 +1,31 @@
+#main-nav{
+  background-color:rgba(0, 0, 0, .4) !important;
+  height: 110px;
+  margin-top: 20px;
+  font-family: 'Lobster', cursive;
+  
+ 
+}
+.navbar-link-font{
+ 
+  font-size: 25px;
+}
+
+body{
+  background: url("https://twincutz.com/wp-content/uploads/2018/02/AT3A3824.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} 
+
+.navbar-link-color{
+  color: goldenrod !important; 
+  
+
+}
+
+
 .list-group-item {
   line-height: 2.5;
 }

@@ -1,47 +1,47 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $barberText = $("#barber-text");
+var $barberDescription = $("#barber-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $barberList = $("#barber-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveBarber: function(barber) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/barber",
+      data: JSON.stringify(barber)
     });
   },
-  getExamples: function() {
+  getBarber: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/barber",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteBarber: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/barber/" + id,
       type: "DELETE"
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshBarber = function() {
+  API.getBarber().then(function(data) {
+    var $barber = data.map(function(barber) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(barber.text)
+        .attr("href", "/barber/" + barber.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": barber.id
         })
         .append($a);
 
@@ -54,8 +54,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $barberList.empty();
+    $barberList.append($barber);
   });
 };
 
@@ -64,9 +64,9 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var barber = {
+    text: $barberText.val().trim(),
+    description: $barberDescription.val().trim()
   };
 
   if (!(example.text && example.description)) {
@@ -74,12 +74,12 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveExample(barber).then(function() {
+    refreshBarber();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $barberText.val("");
+  $barberDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -89,11 +89,11 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteBarber(idToDelete).then(function() {
+    refreshBarber();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$barberList.on("click", ".delete", handleDeleteBtnClick);
