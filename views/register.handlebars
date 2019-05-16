@@ -1,0 +1,57 @@
+<div class="row mt-5 register">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3">
+        Register
+      </h1>
+      <form action="/api/register" method="POST">
+        <div class="form-group">
+          <label for="name">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Please Enter Your Email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">first Name</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            class="form-control"
+            placeholder="Please Enter Your First Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Last Name</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            class="form-control"
+            placeholder="Please Enter Your Last Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Create Password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-submit">
+          Register
+        </button>
+      </form>
+      <p class="lead mt-4">
+        Already Have An Account? <a href="/login">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
