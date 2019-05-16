@@ -1,32 +1,25 @@
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+{{!-- barber 1 --}}
+<div class="container">
+  <div class="row">
+    {{#each barber}}
+    <div class="card col-sm-4 card-color"> 
+      <img src="{{image}}"style ="width: 348px; height: 348px" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text"> 
+  </p>
+      </div>
+      <ul class="list-group list-group-flush card-color">
+        <li class="list-group-item info-color">RATING: {{rating}}</li>
+        <li class="list-group-item info-color">CAR: {{car}}</li>
+        <li class="list-group-item info-color">LICENCE PLATE: {{licence_plate}}</li>
+        <li class="list-group-item info-color">PHONE# {{phone_number}}</li>
+      </ul>
+      <div class="card-body">
+        {{!-- <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a> --}}
+      </div>
+    </div>
+  {{/each}}
   </div>
 </div>

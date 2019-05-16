@@ -5,9 +5,10 @@ var barber = require("../models/barber.js");
 //routes 
 router.get("/barber_list", (req, res) => {
     barber.selectAll((data) =>{
-        var hbsObject = {
+        var hbsObject  = {
             barber:data
         };
+        
 
         res.render("barbers", hbsObject);
     });

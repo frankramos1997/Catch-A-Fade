@@ -1,7 +1,7 @@
 var orm = require ("../config/orm.js");
 
-//Calls ORM function specific to barber
-var appointments = {
+//Calls ORM function specific to appointments
+var appointment = {
     selectAll: (cb) =>{
         orm.selectAll("appointments", (res) =>{
             cb(res);
@@ -31,4 +31,4 @@ updateOne: (objColVals, condition, cb) =>{
     });
     }
 };
-module.exports = appointments;
+module.exports = appointment;

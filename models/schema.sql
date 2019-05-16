@@ -2,7 +2,7 @@ use `j1g7th6052u9xn7r`;
 
 create table barber_log(
     id int not null auto_increment,
-    image varchar(50),
+    image varchar(100),
     name varchar(50),
     phone_number varchar(12),
     car varchar(50),

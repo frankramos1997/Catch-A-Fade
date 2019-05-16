@@ -5,8 +5,9 @@ var barber = {
     selectAll: (cb) =>{
         orm.selectAll("barber_log", (res) =>{
             cb(res);
-
+            
         });
+        
     
 },
 

@@ -19,12 +19,23 @@ body{
   background-size: cover;
 } 
 
-.navbar-link-color{
+.navbar-link-color {
   color: goldenrod !important; 
   
 
 }
 
+h5{
+  color: goldenrod !important; 
+  font-size: 25px;
+  font-family: 'Oswald', sans-serif;
+}
+.info-color{
+  color:white;
+}
+.card-color, .card-color .list-group-item{
+  background-color:rgba(51, 66, 63, 0.836) !important;
+}
 
 .list-group-item {
   line-height: 2.5;

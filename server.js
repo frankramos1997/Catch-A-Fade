@@ -26,6 +26,13 @@ app.set("view engine", "handlebars");
 
 var barber = require("./controllers/barberControllers");
 app.use(barber);
+
+var customer = require("./controllers/customerControllers");
+app.use(customer);
+
+var appointment = require("./controllers/appointmentsControllers");
+app.use(appointment);
+
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
