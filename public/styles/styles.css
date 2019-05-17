@@ -1,5 +1,33 @@
+/* styles */
 .wrapper {
   padding: 100px 0px;
+}
+
+h3,
+h4 {
+  color: #de6848;
+}
+
+.badge {
+  background-color: #de6848;
+  color: #fff;
+  padding: 5px;
+}
+
+span {
+  color: #de6848;
+}
+
+a {
+  color: #de6848;
+}
+
+a:hover {
+  color: #d93025;
+}
+
+select option {
+  text-transform: capitalize;
 }
 
 .coming-soon-box {
@@ -17,7 +45,7 @@
   bottom: 0;
   z-index: 1001;
   opacity: 0;
-  background: rgba(39, 62, 84, 0.82);
+  background-color: #f1f3f4d4;
   -webkit-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
 }
@@ -30,13 +58,12 @@
 
 .card-photo:hover .coming-soon-box {
   opacity: 1;
-  background: rgba(39, 62, 84, 0.82);
+  background-color: #f1f3f4d4;
   -webkit-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
 }
 
 .soon {
-  color: #fff;
   font-size: 20px;
   display: -ms-flexbox;
   display: flex;
@@ -46,10 +73,127 @@
   justify-content: center;
 }
 
+.checked-rating {
+  color: orange;
+}
+
+.card {
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  -o-transition: transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.booking-box {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1001;
+  opacity: 0;
+  background-color: #f1f3f4d4;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.card-box:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.card-box:hover .booking-box {
+  opacity: 1;
+  background-color: #f1f3f4d4;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.btn-submit {
+  border-color: #d93025;
+  font-weight: 600;
+  background-color: #fff;
+  color: #d93025;
+  -o-transition: transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.btn-submit:hover {
+  border-color: #fff;
+  background-color: #d93025;
+  color: #fff;
+}
+
+.btn-submit:focus,
+.btn-submit:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #fff !important;
+  background-color: #d93025 !important;
+  color: #fff !important;
+}
+
+.book-btn {
+  min-width: 50%;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #fff;
+  color: #d93025;
+}
+
+.book-btn:hover {
+  text-decoration: none;
+  background-color: #d93025;
+  color: #fff;
+}
+
+.default-btn {
+  display: block;
+  min-width: 20%;
+  width: 20%;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #fff;
+  color: #d93025;
+}
+
+.default-btn:hover {
+  text-decoration: none;
+  background-color: #98878736;
+}
+
 /* start bootstrap overrides */
+.navbar {
+  background-color: #d93025 !important;
+}
 
 p.lead {
   font-size: 0.95rem;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.1rem #de6848 !important;
+  border-color: #fff !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+  outline: none !important;
 }
 
 /* end bootstrap overrides */

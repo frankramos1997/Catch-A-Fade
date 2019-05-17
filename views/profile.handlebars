@@ -1,15 +1,37 @@
 
 <div class="card">
   <div class="card-header">
-    {{user.email}} <span class="badge badge-Info">{{user.role}}</span>
+    {{user.email}} <span class="badge">{{user.role}}</span>
   </div>
 <!-- if barber show exception details -->
   {{#ifvalue user.role value="barber"}}
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">Welcome In {{barberData.firstname}} {{barberData.lastname}} !</h5>
+
+    {{#ifvalue barberData.isUpdated value=0}}
+
+     <p class="card-text">It is time to add your information.</p>
+
+    {{/ifvalue}}
+
   </div>
+
+  {{else}}
+
+  <div class="card-body">
+    <h5 class="card-title">Welcome In <span>{{customerData.firstname}} {{customerData.lastname}} !</span></h5>
+
+
+    {{#ifvalue customerData.isUpdated value=0}}
+
+     <p class="card-text">It is time to add your information.</p>
+
+    {{/ifvalue}}
+
+    <a href="/barbers" class="mt-3 default-btn">Get Started</a>
+
+  </div>
+
   {{/ifvalue}}
 
 </div>

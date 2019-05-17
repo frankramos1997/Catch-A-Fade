@@ -108,4 +108,11 @@ module.exports = function(app) {
       console.log('data', data);
     });
   });
+
+  // get all barbers process
+  app.get('/barbers', ensureAuthenticated, function(req, res) {
+    db.Barber.findAll({ raw: true }).then(function(barbers) {
+      res.render('barbers', { barbers: barbers });
+    });
+  });
 };
