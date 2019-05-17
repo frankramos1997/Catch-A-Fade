@@ -48,9 +48,19 @@
         <li class="nav-item">
           <a class="nav-link" href="contact">Contact Us</a>
         </li>
+
+        {{#if user}}
         <li class="nav-item">
           <a class="nav-link" href="profile">Profile</a>
         </li>
+        {{/if}}
+
+        {{#ifvalue user.role value="customer"}}
+        <li class="nav-item">
+          <a class="nav-link" href="barbers">Barbers</a>
+        </li>
+        {{/ifvalue}}
+
       </ul>
     </div>
     <div class="collapse navbar-collapse" id="account">

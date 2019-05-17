@@ -45,3 +45,11 @@
   align-items: center;
   justify-content: center;
 }
+
+/* start bootstrap overrides */
+
+p.lead {
+  font-size: 0.95rem;
+}
+
+/* end bootstrap overrides */
