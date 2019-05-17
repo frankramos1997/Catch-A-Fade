@@ -1,8 +1,9 @@
 require('dotenv').config();
 var express = require('express');
 var exphbs = require('express-handlebars');
-const passport = require('passport');
-const session = require('express-session');
+var Handlebars = require('handlebars');
+var passport = require('passport');
+var session = require('express-session');
 
 var db = require('./models');
 
@@ -13,6 +14,14 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
+
+Handlebars.registerHelper('ifvalue', function(conditional, options) {
+  if (options.hash.value === conditional) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
 
 // Handlebars
 app.engine(
@@ -41,6 +50,12 @@ app.use(passport.session());
 
 // // Setup for passport Local
 require('./auth/passport')(passport);
+
+// inject user data in all templates
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 // Routes
 require('./routes/apiRoutes')(app);
