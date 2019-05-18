@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     lastname: { type: DataTypes.STRING },
     phone_number: { type: DataTypes.STRING },
     car_type: { type: DataTypes.STRING },
-    licence_plate: { type: DataTypes.STRING },
+    license_plate: { type: DataTypes.STRING },
     rate: { type: DataTypes.FLOAT },
     image: { type: DataTypes.STRING },
     isUpdated: { type: DataTypes.BOOLEAN, defaultValue: 0 },

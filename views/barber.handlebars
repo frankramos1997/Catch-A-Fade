@@ -1,0 +1,67 @@
+<div class="row mt-5 barber">
+
+  <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+    <div>
+      <img src="{{barber.image}}" alt="...">
+    </div>
+
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-8 col-lg-8 mt-4 ">
+    <div class="card">
+      <div class="card-body">
+
+
+      <div class="barber-header">
+        <h4 class="mb-3">
+          {{barber.firstname}} {{barber.lastname}}
+        </h4>
+        <p class="card-text">
+          {{#ifvalue barber.rate value=0}}
+          <span class="no-rate">No reviews yet!</span>
+          {{/ifvalue}}
+          {{#times barber.rate}}
+          <span class="fa fa-star checked-rating"></span>
+          {{/times}}
+          {{#timesremainder barber.rate}}
+          <span class="fa fa-star"></span>
+          {{/timesremainder}}
+        </p>
+      </div>
+
+      <div class="barber-body">
+        <p class="mb-3 mt-3">
+          <label>Phone Number
+            <i class="fa fa-arrow-right"></i>
+            {{barber.phone_number}}
+          </label>
+          <label>
+            License Plate Number
+            <i class="fa fa-arrow-right"></i>
+          {{barber.license_plate}}
+        </label>
+        </p>
+      </div>
+
+      <form action="/api/book/{{barber.id}}" method="POST">
+        <div class="input-group date mb-3 mt-3" data-provide="datepicker">
+          <label><strong>Select Data</strong></label>
+            <input type="text" class="form-control" name="date" autocomplete="off">
+            <div class="input-group-addon">
+            </div>
+        </div>
+        <button type="submit" class="book-btn mb-3 mt-3">
+          Book Now
+        </button>
+
+      </form>
+     </div>
+   </div>
+ </div>
+
+</div>
+
+
+<script>
+
+</script>

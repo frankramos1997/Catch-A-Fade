@@ -88,7 +88,7 @@ module.exports = function(app) {
       },
       { where: { user_id: req.user.id } },
     ).then(function(data) {
-      console.log('data', data);
+      res.redirect('/profile');
     });
   });
 
@@ -100,12 +100,27 @@ module.exports = function(app) {
         lastname: req.body.lastname,
         phone_number: req.body.phone,
         car_type: req.body.car,
-        licence_plate: req.body.license,
+        license_plate: req.body.license,
         isUpdated: 1,
       },
       { where: { user_id: req.user.id } },
     ).then(function(data) {
-      console.log('data', data);
+      res.redirect('/profile');
+    });
+  });
+
+  // book an appointment process
+  app.post('/api/book/:id', function(req, res) {
+    console.log('req.body.date', req.body.date);
+
+    var data = {
+      date: req.body.date,
+      user_id: req.user.id,
+      barber_id: req.params.id,
+    };
+
+    db.Appointment.create(data).then(function(data) {
+      res.redirect('/confirmation');
     });
   });
 
@@ -114,5 +129,14 @@ module.exports = function(app) {
     db.Barber.findAll({ raw: true }).then(function(barbers) {
       res.render('barbers', { barbers: barbers });
     });
+  });
+
+  // get barber details process
+  app.get('/barber/:id', ensureAuthenticated, function(req, res) {
+    db.Barber.findOne({ where: { id: req.params.id }, raw: true }).then(
+      function(barber) {
+        res.render('barber', { barber: barber });
+      },
+    );
   });
 };

@@ -3,12 +3,18 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <script src="https://code.jquery.com/jquery.js"></script>
   <title>Catch-A-Fade</title>
+  <link rel="icon" type="image/png" href="/img/favicon.png" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+  <script src="/js/index.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+
 </head>
 
 <body>
@@ -44,21 +50,21 @@
     <div class="collapse navbar-collapse" id="links">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="about">About Us</a>
+          <a class="nav-link" href="/about">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact">Contact Us</a>
+          <a class="nav-link" href="/contact">Contact Us</a>
         </li>
 
         {{#if user}}
         <li class="nav-item">
-          <a class="nav-link" href="profile">Profile</a>
+          <a class="nav-link" href="/profile">Profile</a>
         </li>
         {{/if}}
 
         {{#ifvalue user.role value="customer"}}
         <li class="nav-item">
-          <a class="nav-link" href="barbers">Barbers</a>
+          <a class="nav-link" href="/barbers">Barbers</a>
         </li>
         {{/ifvalue}}
 
@@ -68,15 +74,12 @@
       <ul class="navbar-nav ml-auto">
         {{#if user}}
         <li class="nav-item">
-          <a class="nav-link" href="logout">{{user.name}}</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="logout">Logout</a>
         </li>
         {{else}}
-        <li class="nav-item"><a class="nav-link" href="login">Log in</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login">Log in</a></li>
         <li class="nav-item">
-          <a class="nav-link" href="register">Register</a>
+          <a class="nav-link" href="/register">Register</a>
         </li>
         {{/if}}
       </ul>
