@@ -1,11 +1,14 @@
 
-<div class="card">
+<div class="card profile-header">
   <div class="card-header">
     {{user.email}} <span class="badge">{{user.role}}</span>
   </div>
 <!-- if barber show exception details -->
   {{#ifvalue user.role value="barber"}}
   <div class="card-body">
+
+    <img src="{{barberData.image}}" class="img-avatar" alt="...">
+
     <h5 class="card-title">Welcome In {{barberData.firstname}} {{barberData.lastname}} !</h5>
 
     {{#ifvalue barberData.isUpdated value=0}}
@@ -19,6 +22,9 @@
   {{else}}
 
   <div class="card-body">
+
+    <img src="{{customerData.image}}" class="img-avatar" alt="...">
+
     <h5 class="card-title">Welcome In <span>{{customerData.firstname}} {{customerData.lastname}} !</span></h5>
 
 
@@ -37,9 +43,10 @@
 </div>
 
 
-<div class="row mt-5 register">
+<div class="row mt-5">
   <div class="col-lg-6 col-md-12 my-5">
-    <div class="card card-body card-photo">
+    <div class="card card-photo">
+      <div class="card-body">
       <h4 class="text-center mb-3">
         Edit Photo
       </h4>
@@ -57,7 +64,8 @@
         <div class="soon">
            <span>Coming Soon</span>
         </div>
-      </div>
+       </div>
+     </div>
     </div>
   </div>
 
@@ -65,7 +73,8 @@
   {{#ifvalue user.role value="barber"}}
 
   <div class="col-lg-6 col-md-12 my-5">
-    <div class="card card-body">
+    <div class="card">
+      <div class="card-body">
       <h4 class="text-center mb-3">
         Edit Profile
       </h4>
@@ -179,13 +188,15 @@
           Update Profile
         </button>
       </form>
-    </div>
+     </div>
+   </div>
   </div>
 
   {{else}}
 
   <div class="col-lg-6 col-md-12 my-5">
-    <div class="card card-body">
+    <div class="card">
+      <div class="card-body">
       <h4 class="text-center mb-3">
         Edit Profile
       </h4>
@@ -280,7 +291,8 @@
           Update Profile
         </button>
       </form>
-    </div>
+     </div>
+   </div>
   </div>
 
 
