@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     date: { type: DataTypes.DATEONLY },
     user_id: { type: DataTypes.STRING },
     barber_id: { type: DataTypes.STRING },
+    isApproved: { type: DataTypes.BOOLEAN, defaultValue: 0 },
   });
   return Appointment;
 };

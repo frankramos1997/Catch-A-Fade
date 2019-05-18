@@ -76,6 +76,32 @@ module.exports = function(app) {
     }
   });
 
+  // fetch appointment data process
+  app.get('/appointment', ensureAuthenticated, function(req, res) {
+    if (req.user.role == 'barber') {
+      db.Barber.findAll({
+        where: { user_id: req.user.id },
+        raw: true,
+      }).then(function(barber) {
+        db.Appointment.findAll({
+          where: { barber_id: barber[0].id },
+          raw: true,
+        }).then(function(appointments) {
+          res.render('appointment', {
+            appointments: appointments,
+          });
+        });
+      });
+    } else {
+      db.Appointment.findAll({
+        where: { user_id: req.user.id },
+        raw: true,
+      }).then(function(appointments) {
+        res.render('appointment', { appointments: appointments });
+      });
+    }
+  });
+
   // edit customer profile process
   app.post('/api/customer/profile', function(req, res) {
     db.Customer.update(
