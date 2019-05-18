@@ -1,0 +1,34 @@
+<div class="row appointments">
+  {{#each appointments}}
+  <div class="mt-4 col-6 col-sm-6 col-md-6 col-lg-4">
+  <div class="card appointment-box">
+     <div class="card-body">
+
+       {{#ifvalue user.role value="barber"}}
+
+       {{date}}
+    
+       <div class="reject-box">
+         <div class="reject">
+           <form action="/api/book/approve" method="POST">
+            <button type="submit" class="btn default-btn">
+              Approve
+            </button>
+           </form>
+         </div>
+        </div>
+
+       {{else}}
+
+       {{date}}
+
+      {{/ifvalue}}
+
+
+
+
+     </div>
+    </div>
+  </div>
+{{/each}}
+</div>
