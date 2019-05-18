@@ -1,0 +1,30 @@
+  <div class="row">
+    {{#each barbers}}
+    <div class="mt-4 col-12 col-sm-6 col-md-6 col-lg-4">
+    <div class="card card-box" id={{id}}>
+      <img src="\img\buildings-busy-city-514771.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">
+          {{firstname}} {{lastname}}
+        </p>
+
+        <p class="card-text">
+          {{#times rate}}
+          <span class="fa fa-star checked-rating"></span>
+          {{/times}}
+
+          {{#timesremainder rate}}
+          <span class="fa fa-star"></span>
+          {{/timesremainder}}
+
+        </p>
+
+        <div class="booking-box">
+            <a href="/book" class="book-btn">Book Now</a>
+        </div>
+       </div>
+      </div>
+    </div>
+  {{/each}}
+  </div>

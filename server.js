@@ -23,6 +23,18 @@ Handlebars.registerHelper('ifvalue', function(conditional, options) {
   }
 });
 
+Handlebars.registerHelper('times', function(n, block) {
+  var accum = '';
+  for (var i = 0; i < n; ++i) accum += block.fn(i);
+  return accum;
+});
+
+Handlebars.registerHelper('timesremainder', function(n, block) {
+  var accum = '';
+  for (var i = 5; i > n; --i) accum += block.fn(i);
+  return accum;
+});
+
 // Handlebars
 app.engine(
   'handlebars',

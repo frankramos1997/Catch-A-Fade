@@ -42,9 +42,11 @@ module.exports = function(app) {
         };
 
         // save user id in customers table
-        db.Customer.create(data).then(function(data, created) {
-          console.log('data', data);
-        });
+        if (user.role == 'barber') {
+          db.Barber.create(data).then(function(data, created) {});
+        } else {
+          db.Customer.create(data).then(function(data, created) {});
+        }
 
         return res.redirect('/profile');
       });
@@ -54,30 +56,63 @@ module.exports = function(app) {
   // logout process
   app.get('/logout', function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/login');
   });
 
   // fetch profile data process
   app.get('/profile', ensureAuthenticated, function(req, res) {
-    db.Customer.findOne({ where: { user_id: req.user.id }, raw: true }).then(
-      function(user) {
-        res.render('profile', { userData: user });
-      },
-    );
+    if (req.user.role == 'barber') {
+      db.Barber.findOne({ where: { user_id: req.user.id }, raw: true }).then(
+        function(user) {
+          res.render('profile', { barberData: user });
+        },
+      );
+    } else {
+      db.Customer.findOne({ where: { user_id: req.user.id }, raw: true }).then(
+        function(user) {
+          res.render('profile', { customerData: user });
+        },
+      );
+    }
   });
 
-  // edit profile process
-  app.post('/api/profile', function(req, res) {
+  // edit customer profile process
+  app.post('/api/customer/profile', function(req, res) {
     db.Customer.update(
       {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         phone_number: req.body.phone,
         address: req.body.address,
+        isUpdated: 1,
       },
       { where: { user_id: req.user.id } },
     ).then(function(data) {
       console.log('data', data);
+    });
+  });
+
+  // edit barber profile process
+  app.post('/api/barber/profile', function(req, res) {
+    db.Barber.update(
+      {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        phone_number: req.body.phone,
+        car_type: req.body.car,
+        licence_plate: req.body.license,
+        isUpdated: 1,
+      },
+      { where: { user_id: req.user.id } },
+    ).then(function(data) {
+      console.log('data', data);
+    });
+  });
+
+  // get all barbers process
+  app.get('/barbers', ensureAuthenticated, function(req, res) {
+    db.Barber.findAll({ raw: true }).then(function(barbers) {
+      res.render('barbers', { barbers: barbers });
     });
   });
 };
