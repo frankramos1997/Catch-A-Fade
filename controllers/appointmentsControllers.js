@@ -4,13 +4,15 @@ var appointment = require("../models/appointments.js");
 
 //routes 
 router.get("/appointment_list", (req, res) => {
-    appointment.selectAll((data) =>{
-        var hbsObject = {
-            appointment:data
-        };
+    // appointment.selectAll((data) =>{
+    //     var hbsObject = {
+    //         appointment:data
+        
 
-        res.render("appointments", hbsObject);
-    });
+        // res.render("appointments", hbsObject);
+
+
+    res.render("appointment");
 });
 
 // router.post("/api/barber", (req, res) => {

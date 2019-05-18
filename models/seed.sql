@@ -1,5 +1,5 @@
 
-INSERT INTO barber_log (name, image, rating, car, licence_plate, phone_number)
+INSERT INTO barber_log (name, image, rating, car, license_plate, phone_number)
 VALUES ( "Richie", "http://www.barbershopconnect.com/images/size_fs/content-065194.jpg", 2, "Nissan Sentra blue","785ducj", "951-555-5555"),
 ("Tony","https://mrbarberos.gr/en/images/barber2-profile.jpg",5,"Pontiac Catalina Grey","dss1523", "951-666-5555" ),
 ("Chrissy","http://clipart-library.com/images/rcLo74pXi.jpg",4,"Honda Civic Black","666666d","951 555-5656"),

@@ -6,6 +6,11 @@
   
  
 }
+/* login and view barber */
+.view-barber, .view-login{
+margin-left: 810px;
+
+}
 .update_location{
   color:white;
   margin-top: 10px;
@@ -67,10 +72,6 @@ div.modal-body{
   width: 348px; 
   height: 348px;
 }
-.navbar-link-font{
- 
-  font-size: 25px;
-}
 
 body{
   background: url("https://twincutz.com/wp-content/uploads/2018/02/AT3A3824.jpg") no-repeat center center fixed; 
@@ -82,10 +83,17 @@ body{
 
 .navbar-link-color {
   color: goldenrod !important; 
+  font-size: 25px;
   
-
 }
-
+/* catch a fade */
+.navbar-brand{
+  color: goldenrod !important;
+  font-family: 'Lobster', cursive;
+  font-size: 60px !important;
+  margin-left: 25px;
+}
+/* book now button 2nd modal */
 .btn {
   background-color: rgba(38, 49, 47, 0.801);
   font-family:  'Oswald', sans-serif;
@@ -107,6 +115,16 @@ body{
   background-color:rgba(51, 66, 63, 0.836) !important;
 }
 
+.about{
+  color: white;
+    margin-top: 0px;
+    margin-bottom: 1rem;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 45px;
+    font-family: 'Baloo Bhai', cursive;
+    padding-top: 15%;
+ }
 
 
 /* .list-group-item {

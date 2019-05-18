@@ -11,6 +11,9 @@ module.exports = function(app) {
     // });
     res.render("landing");
   });
+  
+
+
 
   // Load barber page and pass in an example by id
   // app.get("/barber/:id", function(req, res) {

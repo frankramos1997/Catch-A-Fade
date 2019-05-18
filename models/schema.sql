@@ -6,7 +6,7 @@ create table barber_log(
     name varchar(50),
     phone_number varchar(12),
     car varchar(50),
-    licence_plate varchar(10),
+    license_plate varchar(10),
     rating float(3,2),
     primary key (id)
 
