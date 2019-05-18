@@ -5,9 +5,8 @@
      <div class="card-body">
 
        {{#ifvalue user.role value="barber"}}
-
        {{date}}
-    
+
        <div class="reject-box">
          <div class="reject">
            <form action="/api/book/approve" method="POST">
@@ -23,9 +22,6 @@
        {{date}}
 
       {{/ifvalue}}
-
-
-
 
      </div>
     </div>
