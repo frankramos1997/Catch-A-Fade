@@ -12,7 +12,15 @@ module.exports = function(app) {
     res.render("landing");
   });
   
-
+  app.get("/login", function(req, res) {
+    // db.Barber.findAll({}).then(function(dbBarber) {
+    //   res.render("landing", {
+    //     msg: "Welcome!",
+    //     examples: dbBarber
+    //   });
+    // });
+    res.render("login");
+  });
 
 
   // Load barber page and pass in an example by id
